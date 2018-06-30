@@ -6,7 +6,8 @@ import _ from 'lodash'
 
 class PokemonPage extends React.Component {
   state = {
-    pokemonArr: []
+    pokemonArr: [],
+    search: ''
   }
 
   componentDidMount(){
@@ -37,8 +38,21 @@ class PokemonPage extends React.Component {
       }))
   }
 
+  handleSearch = () => {
+    const newPokemonArr = [...this.state.pokemonArr]
+    if (this.state.search === '') {
+      return newPokemonArr
+    } else {
+      const searchArr = newPokemonArr.filter(pokemon => pokemon.name.includes(this.state.search))
+      console.log(searchArr)
+      return searchArr
+    }
+  }
+
   handleChange = (e) => {
-    console.log(e.target.value);
+    this.setState({
+      search: e.target.value
+    })
   }
 
   render() {
@@ -49,7 +63,7 @@ class PokemonPage extends React.Component {
         <br />
         <Search onSearchChange={this.handleChange} showNoResults={false} />
         <br />
-        <PokemonCollection pokemons={this.state.pokemonArr}/>
+        <PokemonCollection pokemons={this.handleSearch()}/>
         <br />
         <PokemonForm createPokemon={this.createPokemon}/>
       </div>
