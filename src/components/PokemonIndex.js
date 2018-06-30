@@ -49,9 +49,10 @@ class PokemonPage extends React.Component {
     }
   }
 
-  handleChange = (e) => {
+  handleChange = (value) => {
+    // console.log(value.value);
     this.setState({
-      search: e.target.value
+      search:  value.value
     })
   }
 
@@ -61,7 +62,7 @@ class PokemonPage extends React.Component {
       <div>
         <h1>Pokemon Searcher</h1>
         <br />
-        <Search onSearchChange={this.handleChange} showNoResults={false} />
+        <Search onSearchChange={_.debounce((event, value) => this.handleChange(value), 500)} showNoResults={false} />
         <br />
         <PokemonCollection pokemons={this.handleSearch()}/>
         <br />
@@ -71,6 +72,6 @@ class PokemonPage extends React.Component {
   }
 }
 
-// _.debounce(() => this.handleChange, 500)
+// _.debounce((event) => this.handleChange(event), 500)
 
 export default PokemonPage
