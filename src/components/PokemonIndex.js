@@ -33,7 +33,7 @@ class PokemonPage extends React.Component {
     })
       .then(r => r.json())
       .then(obj => this.setState({
-        pokemonArr: [...this.state.pokemonArr, obj]
+        pokemonArr: [obj, ...this.state.pokemonArr]
       }))
   }
 

@@ -7340,8 +7340,8 @@
         }
       ],
       "sprites": {
-        "front": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/front/1.png",
-        "back": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/1.png"
+        "front": "https://img.pokemondb.net/sprites/black-white/normal/bulbasaur.png",
+        "back": "https://img.pokemondb.net/sprites/black-white/back-normal/bulbasaur.png"
       },
       "id": 207
     }
