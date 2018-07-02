@@ -8,20 +8,24 @@ class PokemonCard extends React.Component {
     this.state = {
       name: this.props.pokemon.name,
       image: this.props.pokemon.sprites.front,
-      hp: this.props.pokemon.stats[5].value
+      hp: this.props.pokemon.hp
     }
   }
 
   handleClick = () => {
-    if (this.state.image === this.props.pokemon.sprites.front){
-      this.setState({
-        image: this.props.pokemon.sprites.back
-      })
-    } else {
-      this.setState({
-        image: this.props.pokemon.sprites.front
-      })
-    }
+    // if (this.state.image === this.props.pokemon.sprites.front){
+    //   this.setState({
+    //     image: this.props.pokemon.sprites.back
+    //   })
+    // } else {
+    //   this.setState({
+    //     image: this.props.pokemon.sprites.front
+    //   })
+    // }
+
+    this.state.image === this.props.pokemon.sprites.front ?
+    this.setState({ image: this.props.pokemon.sprites.back}) :
+    this.setState({ image: this.props.pokemon.sprites.front})
   }
 
   render() {

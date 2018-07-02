@@ -7336,7 +7336,8 @@
         3,
         4,
         {
-          "value": "25"
+          "value": "25",
+          "name": "hp"
         }
       ],
       "sprites": {
@@ -7344,6 +7345,25 @@
         "back": "https://img.pokemondb.net/sprites/black-white/back-normal/bulbasaur.png"
       },
       "id": 207
+    },
+    {
+      "name": "crazyCHU",
+      "stats": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        {
+          "value": "400",
+          "name": "hp"
+        }
+      ],
+      "sprites": {
+        "front": "https://media.giphy.com/media/slVWEctHZKvWU/giphy-downsized.gif",
+        "back": "https://media.giphy.com/media/U2nN0ridM4lXy/giphy-downsized.gif"
+      },
+      "id": 208
     }
   ]
 }
