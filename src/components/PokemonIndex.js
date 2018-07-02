@@ -69,7 +69,8 @@ class PokemonPage extends React.Component {
         'content-type': 'application/json'
       }
     })
-      .then(r => r.json()).then(console.log)
+      .then(r => r.json())
+      .then(this.fetchPokemon())
       // .then(obj => this.setState({
       //   pokemonArr: [obj, ...this.state.pokemonArr]
       // }))

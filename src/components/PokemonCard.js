@@ -30,9 +30,9 @@ class PokemonCard extends React.Component {
 
   render() {
     return (
-      <Card>
+      <Card onClick={this.handleClick}>
         <div>
-          <div className="image" onClick={this.handleClick}>
+          <div className="image">
             <img src={this.state.image} alt="oh no!" />
           </div>
           <div className="content">
