@@ -9,23 +9,58 @@ class PokemonForm extends React.Component {
       name: '',
       hp: '',
       frontUrl: '',
-      backUrl: ''
+      backUrl: '',
+      isClicked: false
     }
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault()
+    this.props.createPokemon(
+      { name: this.state.name,
+        stats: [0, 1, 2, 3, 4,
+          { value: this.state.hp,
+            name: "hp"}
+          ],
+        sprites: {
+          front: this.state.frontUrl,
+          back: this.state.backUrl
+        }
+      }
+    )
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  handleClick = () => {
+    this.setState({
+      isClicked: !this.state.isClicked
+    })
+  }
+
   render() {
+    const isClicked = this.state.isClicked
     return (
       <div>
-        <h3>Add a Pokemon!</h3>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group widths="equal">
-            <Form.Input fluid label="Name" placeholder="Name" name="name" />
-            <Form.Input fluid label="hp" placeholder="hp" name="hp" />
-            <Form.Input fluid label="Front Image URL" placeholder="url" name="frontUrl" />
-            <Form.Input fluid label="Back Image URL" placeholder="url" name="backUrl" />
-          </Form.Group>
-          <Form.Button>Submit</Form.Button>
-        </Form>
+        <button onClick={this.handleClick}>Add a Pokemon!</button>
+        {
+          isClicked ?
+          (<Form onSubmit={this.handleSubmit}>
+            <Form.Group widths="equal">
+              <Form.Input fluid label="Name" placeholder="Name" name="name" onChange={this.handleChange}/>
+              <Form.Input fluid label="hp" placeholder="hp" name="hp" onChange={this.handleChange}/>
+              <Form.Input fluid label="Front Image URL" placeholder="url" name="frontUrl" onChange={this.handleChange}/>
+              <Form.Input fluid label="Back Image URL" placeholder="url" name="backUrl" onChange={this.handleChange}/>
+            </Form.Group>
+            <Form.Button>Submit</Form.Button>
+          </Form>) : (
+            null
+          )
+        }
       </div>
     )
   }
